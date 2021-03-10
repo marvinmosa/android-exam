@@ -15,6 +15,7 @@ import com.prototype.databinding.FragmentMainBinding
 import com.prototype.ui.base.BaseFragment
 import com.prototype.ui.main.adapter.MainAdapter
 import com.prototype.ui.main.viewmodel.MainViewModel
+import com.prototype.utils.Constant.EXTRA_DATA
 import com.prototype.utils.Status
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -93,7 +94,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main), MainAdapter.OnItemCli
     override fun onItemClick(position: Int) {
         val user = adapter.getItem(position)
         val intent = Intent(requireContext(), DetailActivity::class.java)
-        intent.putExtra("data", user)
+        intent.putExtra(EXTRA_DATA, user)
         startActivity(intent)
     }
 }

@@ -10,15 +10,16 @@ import com.prototype.databinding.FragmentDetailBinding
 import com.prototype.ui.base.BaseFragment
 import com.prototype.ui.main.viewmodel.DetailViewModel
 import com.prototype.utils.AgeUtils
+import com.prototype.utils.Constant.BUNDLE_DATA
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class DetailFragment() : BaseFragment(R.layout.fragment_detail) {
+class DetailFragment : BaseFragment(R.layout.fragment_detail) {
 
     companion object {
         fun newInstance(user: User): DetailFragment {
             val fragment = DetailFragment()
             val bundle = Bundle()
-            bundle.putSerializable("data", user)
+            bundle.putSerializable(BUNDLE_DATA, user)
             fragment.arguments = bundle
         return fragment}
     }
@@ -36,7 +37,7 @@ class DetailFragment() : BaseFragment(R.layout.fragment_detail) {
         viewBinding = FragmentDetailBinding.inflate(inflater, container, false)
         val view = binding.root
         val bundle: Bundle? = arguments
-        user = bundle?.getSerializable("data") as User
+        user = bundle?.getSerializable(BUNDLE_DATA) as User
 
         setupUi()
         setupObservers()
