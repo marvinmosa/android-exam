@@ -5,6 +5,9 @@ import com.prototype.BuildConfig
 import com.prototype.data.api.ApiHelper
 import com.prototype.data.api.ApiHelperImpl
 import com.prototype.data.api.ApiService
+import com.prototype.utils.Constant.CACHE_MAX_AGE
+import com.prototype.utils.Constant.CACHE_MAX_STALE
+import com.prototype.utils.Constant.CACHE_SIZE
 import com.prototype.utils.NetworkHelper
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -28,19 +31,19 @@ val appModule = module {
 private fun provideNetworkHelper(context: Context) = NetworkHelper(context)
 
 private fun provideOkHttpClient(context: Context, networkHelper: NetworkHelper): OkHttpClient {
-    val cacheSize = (5 * 1024 * 1024).toLong()
+    val cacheSize = (CACHE_SIZE).toLong()
     val cache = Cache(context.cacheDir, cacheSize)
       return OkHttpClient.Builder()
         .cache(cache)
         .addInterceptor { chain ->
             var request = chain.request()
             request = if (networkHelper.isNetworkConnected())
-                request.newBuilder().header("Cache-Control", "public, max-age=" + 60 * 60 * 24 * 7)
+                request.newBuilder().header("Cache-Control", "public, max-age=" + CACHE_MAX_AGE)
                     .build()
             else
                 request.newBuilder().header(
                     "Cache-Control",
-                    "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7
+                    "public, only-if-cached, max-stale=" + CACHE_MAX_STALE
                 ).build()
             chain.proceed(request)
         }
