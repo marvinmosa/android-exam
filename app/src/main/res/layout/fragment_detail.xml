@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.view.DetailActivity">
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_left"
+        android:layout_marginTop="48dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_age_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/text_margin_left"
+        android:layout_marginTop="48dp"
+        android:text="@string/text_age"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_name" />
+
+    <TextView
+        android:id="@+id/text_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        app:layout_constraintStart_toEndOf="@+id/text_age_label"
+        app:layout_constraintTop_toTopOf="@+id/text_age_label" />
+
+    <TextView
+        android:id="@+id/text_address_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:text="@string/text_address"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/text_age_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_age_label" />
+
+    <TextView
+        android:id="@+id/text_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        app:layout_constraintStart_toStartOf="@+id/text_age"
+        app:layout_constraintTop_toBottomOf="@+id/text_age" />
+
+    <TextView
+        android:id="@+id/text_email_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:text="@string/text_email"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/text_address_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_address_label" />
+
+    <TextView
+        android:id="@+id/text_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        app:layout_constraintStart_toStartOf="@+id/text_address"
+        app:layout_constraintTop_toBottomOf="@+id/text_address" />
+
+    <TextView
+        android:id="@+id/text_phone_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:text="@string/text_mobile_number"
+        app:layout_constraintStart_toStartOf="@+id/text_email_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_email_label" />
+
+    <TextView
+        android:id="@+id/text_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        app:layout_constraintStart_toStartOf="@+id/text_email"
+        app:layout_constraintTop_toBottomOf="@+id/text_email" />
+
+    <TextView
+        android:id="@+id/text_birthday_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:text="@string/text_birthday"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/text_phone_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_phone_label" />
+
+    <TextView
+        android:id="@+id/text_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        app:layout_constraintStart_toStartOf="@+id/text_phone"
+        app:layout_constraintTop_toBottomOf="@+id/text_phone" />
+
+    <TextView
+        android:id="@+id/text_contact_name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/text_contact_name"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/text_birthday_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_birthday_label" />
+
+    <TextView
+        android:id="@+id/text_contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="@+id/text_birthday"
+        app:layout_constraintTop_toBottomOf="@+id/text_birthday" />
+
+    <TextView
+        android:id="@+id/text_contact_phone_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        android:text="@string/text_contact_mobile_number"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/text_contact_name_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_contact_name_label" />
+
+    <TextView
+        android:id="@+id/text_contact_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/text_margin_top"
+        app:layout_constraintStart_toStartOf="@+id/text_contact_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_contact_name" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin_left"
+        android:layout_marginBottom="48dp"
+        android:text="@string/text_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
