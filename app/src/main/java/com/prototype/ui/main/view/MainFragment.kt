@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prototype.R
-import com.prototype.data.model.User
+import com.prototype.data.model.Person
 import com.prototype.databinding.FragmentMainBinding
 import com.prototype.ui.base.BaseFragment
 import com.prototype.ui.main.adapter.MainAdapter
@@ -57,7 +56,7 @@ class MainFragment : BaseFragment(R.layout.fragment_main), MainAdapter.OnItemCli
     }
 
     override fun setupObservers() {
-        mainViewModel.users.observe(requireActivity(), {
+        mainViewModel.persons.observe(requireActivity(), {
             it?.let { result ->
                 when (result.status) {
                     Status.SUCCESS -> {
@@ -79,9 +78,9 @@ class MainFragment : BaseFragment(R.layout.fragment_main), MainAdapter.OnItemCli
         })
     }
 
-    private fun retrieveList(users: List<User>) {
+    private fun retrieveList(person: List<Person>) {
         adapter.apply {
-            addUsers(users)
+            addUsers(person)
             notifyDataSetChanged()
         }
     }

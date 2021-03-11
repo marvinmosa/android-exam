@@ -2,7 +2,7 @@ package com.prototype.data.model
 
 import java.io.Serializable
 
-data class User(
+data class Person(
     val id: String,
     val firstName: String,
     val lastName: String,

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.prototype.R
-import com.prototype.data.model.User
+import com.prototype.data.model.Person
 import com.prototype.databinding.FragmentDetailBinding
 import com.prototype.ui.base.BaseFragment
 import com.prototype.ui.main.viewmodel.DetailViewModel
@@ -16,10 +16,10 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class DetailFragment : BaseFragment(R.layout.fragment_detail) {
 
     companion object {
-        fun newInstance(user: User): DetailFragment {
+        fun newInstance(person: Person): DetailFragment {
             val fragment = DetailFragment()
             val bundle = Bundle()
-            bundle.putSerializable(BUNDLE_DATA, user)
+            bundle.putSerializable(BUNDLE_DATA, person)
             fragment.arguments = bundle
         return fragment}
     }
@@ -27,7 +27,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
     private val detailViewModel: DetailViewModel by viewModel()
     private var viewBinding: FragmentDetailBinding? = null
     private val binding get() = viewBinding!!
-    private lateinit var user: User
+    private lateinit var person: Person
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +37,7 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
         viewBinding = FragmentDetailBinding.inflate(inflater, container, false)
         val view = binding.root
         val bundle: Bundle? = arguments
-        user = bundle?.getSerializable(BUNDLE_DATA) as User
+        person = bundle?.getSerializable(BUNDLE_DATA) as Person
 
         setupUi()
         setupObservers()
@@ -46,14 +46,14 @@ class DetailFragment : BaseFragment(R.layout.fragment_detail) {
 
 
     override fun setupUi() {
-        binding.textName.text = "${user.firstName} ${user.lastName}"
-        binding.textAge.text = AgeUtils.getAge(user.birthday)
-        binding.textAddress.text = user.address
-        binding.textEmail.text = user.email
-        binding.textBirthday.text = AgeUtils.getShortBirthday(user.birthday)
-        binding.textPhone.text = user.mobileNumber
-        binding.textContactName.text = user.contactPerson
-        binding.textContactPhone.text = user.contactPersonNumber
+        binding.textName.text = "${person.firstName} ${person.lastName}"
+        binding.textAge.text = AgeUtils.getAge(person.birthday)
+        binding.textAddress.text = person.address
+        binding.textEmail.text = person.email
+        binding.textBirthday.text = AgeUtils.getShortBirthday(person.birthday)
+        binding.textPhone.text = person.mobileNumber
+        binding.textContactName.text = person.contactPerson
+        binding.textContactPhone.text = person.contactPersonNumber
 
         binding.btnBack.setOnClickListener {
             activity?.finish()

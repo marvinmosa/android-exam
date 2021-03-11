@@ -2,9 +2,8 @@ package com.prototype.ui.main.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prototype.data.model.User
+import com.prototype.data.model.Person
 import com.prototype.data.repository.MainRepository
 import com.prototype.ui.base.BaseViewModel
 import com.prototype.utils.NetworkHelper
@@ -20,9 +19,9 @@ class MainViewModel(
 
 ) : BaseViewModel() {
 
-    private val user = MutableLiveData<Result<List<User>>>()
-    val users: LiveData<Result<List<User>>>
-        get() = user
+    private val person = MutableLiveData<Result<List<Person>>>()
+    val persons: LiveData<Result<List<Person>>>
+        get() = person
 
     init {
         fetchUsers()
@@ -30,13 +29,13 @@ class MainViewModel(
 
     private fun fetchUsers() {
         viewModelScope.launch {
-            user.postValue(Result.loading(null))
+            person.postValue(Result.loading(null))
 //            if (networkHelper.isNetworkConnected()) {
                 withContext(Dispatchers.IO) {
                     mainRepository.getUsers().let {
                         if (it.isSuccessful) {
-                            user.postValue(Result.success(it.body()))
-                        } else user.postValue(Result.error(null, it.errorBody().toString()))
+                            person.postValue(Result.success(it.body()))
+                        } else person.postValue(Result.error(null, it.errorBody().toString()))
                     }
                 }
 //            } else user.postValue(Result.error(null, "No internet connection"))
